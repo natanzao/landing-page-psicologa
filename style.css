@@ -1,0 +1,581 @@
+/* Variáveis de Cores */
+:root {
+    --primary-yellow: #FFD700; /* Amarelo Vibrante */
+    --light-yellow: #FFFACD; /* Amarelo Claro */
+    --off-white: #F8F8F8; /* Quase branco */
+    --gray-text: #555;
+    --dark-gray: #333;
+    --accent-color: #ADD8E6; /* Azul claro para detalhes */
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--gray-text);
+    background-color: var(--off-white);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* --- Header e Navegação --- */
+header {
+    background-color: var(--light-yellow);
+    color: var(--dark-gray);
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--dark-gray);
+}
+
+/* Esconde o ícone do hambúrguer em telas maiores */
+.hamburger-menu {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.8em;
+    cursor: pointer;
+    color: var(--dark-gray);
+    padding: 5px;
+}
+
+header ul.nav-links { /* Adicionado a classe nav-links */
+    list-style: none;
+    display: flex;
+}
+
+header ul.nav-links li {
+    margin-left: 30px;
+}
+
+header ul.nav-links li a {
+    color: var(--dark-gray);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header ul.nav-links li a:hover {
+    color: var(--primary-yellow);
+}
+
+/* --- Carrossel de Imagens (Hero Section) --- */
+.hero-carousel {
+    position: relative;
+    width: 100%;
+    height: 600px; /* Altura do carrossel */
+    overflow: hidden;
+    margin-top: 70px; /* Para não ficar por baixo do cabeçalho fixo */
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.8s ease-in-out;
+    height: 100%;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem cubra o slide */
+    filter: brightness(70%); /* Escurece um pouco a imagem para o texto se destacar */
+}
+
+.carousel-caption {
+    position: absolute;
+    color: #fff;
+    font-size: 2.5em;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3); /* Fundo semi-transparente para o texto */
+    border-radius: 8px;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0,0,0,0.5);
+    border: none;
+}
+
+.prev { /* Adicionado/Corrigido para a seta esquerda */
+    left: 0;
+    border-radius: 0 3px 3px 0; /* Garante o arredondamento correto */
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* --- Seções Gerais --- */
+section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 2.8em;
+    color: var(--dark-gray);
+    margin-bottom: 40px;
+    position: relative;
+}
+
+section h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-yellow);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+/* --- Seção Sobre Mim --- */
+.about-section {
+    background-color: #fff;
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    text-align: left;
+}
+
+.about-image {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 50%;
+    border: 8px solid var(--light-yellow);
+    box-shadow: 0 8px 16px var(--shadow-color);
+}
+
+.about-text {
+    flex: 2;
+    min-width: 300px;
+    max-width: 600px;
+}
+
+.about-text h3 {
+    font-size: 2em;
+    color: var(--dark-gray);
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    color: var(--gray-text);
+}
+
+/* --- Seções de Trabalho e Estudos --- */
+.work-section, .studies-section {
+    background-color: var(--off-white);
+}
+
+.work-grid, .studies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    text-align: left;
+}
+
+.work-item, .study-item {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.work-item:hover, .study-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.work-item h3, .study-item h3 {
+    color: var(--primary-yellow);
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.work-item p, .study-item p {
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: var(--gray-text);
+}
+
+.work-item ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 15px;
+}
+
+.work-item ul li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 25px;
+}
+
+.work-item ul li::before {
+    content: "\f00c"; /* Ícone de check do Font Awesome */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+
+/* --- Formulário de Contato --- */
+.contact-section {
+    background-color: #fff;
+    padding-bottom: 100px; /* Mais espaço para o formulário */
+}
+
+.contact-section p {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+}
+
+#contactForm {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--light-yellow);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: var(--dark-gray);
+}
+
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="email"]:focus,
+.form-group input[type="tel"]:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-yellow);
+    outline: none;
+}
+
+#contactForm button {
+    background-color: var(--primary-yellow);
+    color: var(--dark-gray);
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%; /* Botão em largura total */
+}
+
+#contactForm button:hover {
+    background-color: #FFC400; /* Um pouco mais escuro */
+    transform: translateY(-2px);
+}
+
+/* Estilos para mensagens de erro do formulário */
+.error-message {
+    color: #f44336; /* Vermelho vibrante */
+    font-size: 0.9em;
+    margin-top: 5px;
+    display: block; /* Garante que a mensagem fique em sua própria linha */
+    text-align: left;
+}
+
+input.invalid, textarea.invalid {
+    border-color: #f44336 !important; /* Borda vermelha para campos inválidos */
+    box-shadow: 0 0 0 2px rgba(244, 67, 54, 0.2); /* Sombra suave para destaque */
+}
+
+
+/* --- Seção de Localização (Nova) --- */
+.location-section {
+    background-color: var(--off-white);
+    padding-bottom: 100px;
+}
+
+.location-section p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+.map-embed {
+    margin: 40px auto;
+    max-width: 800px; /* Largura máxima para o mapa */
+    border-radius: 10px;
+    overflow: hidden; /* Garante que o iframe respeite o border-radius */
+    box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+.map-embed iframe {
+    width: 100%;
+    height: 450px;
+    border: 0;
+}
+
+.location-section a {
+    color: var(--primary-yellow);
+    text-decoration: underline;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.location-section a:hover {
+    color: #FFC400;
+}
+
+/* --- Rodapé --- */
+footer {
+    background-color: var(--dark-gray);
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+footer .container p a { /* Estilo específico para o link no footer */
+    color: #fff; /* Sempre branco */
+    text-decoration: underline; /* Sempre sublinhado */
+    cursor: pointer; /* Mãozinha no hover */
+    transition: none; /* Remove transição de cor no hover */
+}
+
+footer .container p a:hover { /* Remove alteração de cor no hover, mantém branco */
+    color: #fff;
+}
+
+
+/* --- Pop-up de Confirmação --- */
+.popup {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    position: relative;
+    max-width: 400px;
+    margin: 20px;
+    color: var(--dark-gray);
+    font-size: 1.2em;
+}
+
+.popup-content .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--gray-text);
+}
+
+.popup-content .close-btn:hover {
+    color: var(--primary-yellow);
+}
+
+/* --- Responsividade (Media Queries) --- */
+@media (max-width: 900px) {
+    header nav {
+        flex-direction: row; /* Volta para row para alinhar logo e hambúrguer */
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Mostra o ícone do hambúrguer */
+    .hamburger-menu {
+        display: block;
+    }
+
+    /* Esconde o menu de navegação padrão em telas menores */
+    header ul.nav-links {
+        display: none;
+        flex-direction: column; /* Coloca os links um abaixo do outro */
+        width: 100%;
+        position: absolute;
+        top: 70px; /* Abaixo do header */
+        left: 0;
+        background-color: var(--light-yellow); /* Fundo do menu mobile */
+        box-shadow: 0 5px 5px var(--shadow-color);
+        padding: 10px 0;
+    }
+
+    header ul.nav-links.active { /* Classe para mostrar o menu */
+        display: flex;
+    }
+
+    header ul.nav-links li {
+        margin: 10px 0; /* Espaçamento vertical para itens do menu mobile */
+        text-align: center;
+    }
+
+    header ul.nav-links li a {
+        padding: 10px 20px; /* Aumenta área clicável */
+        display: block;
+    }
+
+    .hero-carousel {
+        height: 450px;
+        margin-top: 70px; /* Ajuste para cabeçalho fixo */
+    }
+
+    .carousel-caption {
+        font-size: 1.8em;
+    }
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-image {
+        max-width: 250px;
+    }
+
+    .about-text {
+        min-width: unset;
+        max-width: 100%;
+    }
+
+    .work-grid, .studies-grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .logo {
+        font-size: 1.5em;
+    }
+
+    .hero-carousel {
+        height: 350px;
+        /* A margem superior pode precisar de ajuste fino dependendo da altura final do header mobile */
+    }
+
+    .carousel-caption {
+        font-size: 1.4em;
+        padding: 10px;
+    }
+
+    .prev, .next {
+        font-size: 24px;
+        padding: 12px;
+    }
+
+    section h2 {
+        font-size: 2em;
+    }
+
+    .about-image {
+        margin-bottom: 20px;
+    }
+
+    .about-text h3 {
+        font-size: 1.6em;
+    }
+
+    #contactForm {
+        padding: 25px;
+    }
+}
